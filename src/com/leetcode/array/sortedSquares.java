@@ -35,3 +35,8 @@ public class sortedSquares {
 		return b;
 	}
 }
+/*
+ * result
+ * Runtime: 471s
+ * Memory: 40.6 MB
+ * */
