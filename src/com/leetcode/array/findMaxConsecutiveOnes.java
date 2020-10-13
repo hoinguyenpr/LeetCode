@@ -29,3 +29,9 @@ public class findMaxConsecutiveOnes {
 		return max;
 	}
 }
+
+/*
+ * result
+ * Runtime: 471s
+ * Memory: 40.6 MB
+ * */
