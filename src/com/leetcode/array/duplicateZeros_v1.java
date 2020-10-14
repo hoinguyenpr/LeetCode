@@ -30,3 +30,8 @@ public class duplicateZeros_v1 {
 		}
 	}
 }
+/*Author: Hoi Nguyen
+ * result
+ * Runtime: 14s
+ * Memory: 38.8MB
+ * */
