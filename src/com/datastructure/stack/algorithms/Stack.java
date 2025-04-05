@@ -94,17 +94,50 @@ public class Stack<T> {
         return checkStack.isEmpty();
     }
 
+
+    //Exercise 42
+//    public static void sortStack(Stack<Integer> oriStack) {
+//        if(oriStack.isEmpty()) return;
+//
+//        ArrayList<Integer> tempArr = new ArrayList<>();
+//        while (!oriStack.isEmpty()) {
+//            tempArr.add(oriStack.pop());
+//        }
+//        for (int i = tempArr.size() - 1; i >= 0; i --) {
+//            oriStack.push(tempArr.get(i));
+//        }
+//    }
+
+    public static void sortStack(Stack<Integer> stack) {
+        Stack<Integer> bufferStack = new Stack<>();
+        if (stack.isEmpty()) return;
+        while(!stack.isEmpty()) {
+            int temp = stack.pop();
+            while (!bufferStack.isEmpty() && bufferStack.peek() > temp) {
+                stack.push(bufferStack.pop());
+            }
+            bufferStack.push(temp);
+        }
+        while (!bufferStack.isEmpty()) {
+            stack.push(bufferStack.pop());
+        }
+    }
+
+
     public static void main(String[] args) {
-        testAndPrint("()", true);
-        testAndPrint("()()", true);
-        testAndPrint("(())", true);
-        testAndPrint("()()()", true);
-        testAndPrint("(()())", true);
-        testAndPrint(")()(", false);
-        testAndPrint(")(", false);
-        testAndPrint("(()", false);
-        testAndPrint("))", false);
-        testAndPrint("(", false);
-        testAndPrint(")", false);
+        Stack<Integer> stack = new Stack<>();
+        stack.push(3);
+        stack.push(2);
+        stack.push(5);
+        stack.push(1);
+        stack.push(4);
+
+        System.out.println("Before sorting:");
+        stack.printStack();
+
+        sortStack(stack);
+
+        System.out.println("\nAfter sorting:");
+        stack.printStack();
     }
 }
